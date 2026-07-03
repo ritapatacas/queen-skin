@@ -1,4 +1,81 @@
-* {
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'DomaineText';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/webfonts/DomaineTextWeb-Regular.woff2') format('woff2'),
+       url('/webfonts/DomaineTextWeb-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Brandon Grotesque KIDS Light";
+  src: url("https://db.onlinewebfonts.com/t/3869f62d23134004553904e5f75d3935.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/3869f62d23134004553904e5f75d3935.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Brandon Grotesque Bold";
+  src: url("https://db.onlinewebfonts.com/t/4c40c7f27503517082e3857518913bab.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/4c40c7f27503517082e3857518913bab.woff") format("woff");
+}
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #E6DDDE;
+  --bg-secondary: #F0EFED;
+  --white: #FFFFFF;
+
+  /* Text */
+  --text-primary: #150811;
+  --text-secondary: #6B6B6B;
+  --text-muted: #8A8A8A;
+  --text-note: #5C5C5C;
+
+  /* Brand */
+  --primary: #393CA2;
+  --primary-hover: #2E3090;
+  --accent: #3985A3;
+  --hero-highlight: #5D8AA8;
+
+  /* Borders */
+  --border-light: #E0D8D0;
+  --border-stroke: #C8C0B8;
+
+  /* Routine cards */
+  --treatment: #355070;
+  --recovery: #588B8B;
+  --peeling: #D88A46;
+  --blackheads: #515575;
+  --morning: #708B75;
+  --pre-makeup: #B76D68;
+  --irritated: #B56576;
+  --acne: #E56B6F;
+  --acne-breakout: #915f78;
+
+  /* Badge backgrounds */
+  --badge-essential: #EBEBF5;
+  --badge-very-useful: #EDF2F5;
+  --badge-complementary: #F0EFF8;
+
+  /* Face diagram */
+  --face-inactive: #E0D8D4;
+  --face-stroke: #B0A098;
+  --face-pupil: #4A4A5A;
+  --face-bg: #F0EBE8;
+  --zone-active-eyes: #9297C4;
+  --zone-inactive-text: #A09890;
+  --zone-inactive-bg: #E8E4E0;
+
+  /* Misc */
+  --sandy-beige: #D6CFB5;
+  --peeling-lavender: #6D597A;
+  --shadow-grey: #231F20;
+}
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,9 +84,36 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-link {
+  text-decoration: none;
+}
+.product-link:hover {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
 }
