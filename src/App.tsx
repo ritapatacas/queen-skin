@@ -26,17 +26,21 @@ const categoryOrder = [
 
 const products = [
   { id: 15, name: "*Blooming* Cleansing for Sensitive Skin", brand: "Blooming Skin", category: "Cleanser", url: "https://www.bloomingskin.pt", image: "blooming-cleansing-sensitive-skin.png", function: "Gentle cleansing, makeup removal, suitable for sensitive skin.", faceZones: ["forehead", "cheeks", "nose", "chin", "eyes", "neck"], frequency: "Morning and night — first step of any routine.", application: "Apply for 30 to 60 seconds with gentle circular motions. Remove with lukewarm water or a damp cotton pad.", applicationTime: "for 30–60s", tips: "Doesn't need to foam to be effective.", avoids: "No known incompatibilities.", priority: "complementar" },
+  { id: 16, name: "*Pure Active* Charcoal Cleanser", brand: "Garnier", category: "Cleanser", url: "https://www.garnier.pt/pure-active", image: "garnier-pure-active-carbon.png", function: "Purifying cleansing with charcoal and salicylic acid — blackheads, excess oil, enlarged pores.", faceZones: ["forehead", "cheeks", "nose", "chin"], frequency: "Nights with active treatments (Treatment and Blackheads nights) — first step, instead of the Blooming cleanser.", application: "Massage onto damp skin with circular motions for 30 to 60 seconds, focusing on the T-zone. Rinse with lukewarm water. Avoid the eye contour.", applicationTime: "for 30–60s", tips: "Contains salicylic acid — keep the Blooming cleanser on peeling, recovery and irritated-skin nights to avoid stacking acids.", avoids: "Do not use on irritated skin or on peeling night — use the Blooming cleanser instead.", priority: "muito_util" },
   { id: 4, name: "*Effaclar* Astringent Lotion", brand: "La Roche-Posay", category: "Exfoliant", url: "https://www.laroche-posay.pt/produto/effaclar-lotion-micro-exfoliante", image: "effaclar-astringent-lotion.png", function: "Light chemical exfoliation, blackheads, enlarged pores.", faceZones: ["nose", "chin", "cheeks"], frequency: "Once a week (Sunday) — after cleansing.", application: "Apply with a cotton pad exclusively on the T-zone and cheeks. Avoid the forehead if there are no blackheads. Never apply on the eye contour. Wait 2 minutes.", applicationTime: "wait 2min", tips: "Contains glycolic acid. Reinforce SPF50 the next day.", avoids: "Do not combine with Effaclar Sérum, Galénic Peeling. Do not use on irritated skin.", priority: "muito_util" },
   { id: 5, name: "Pureté Sublime *Peeling*", brand: "Galénic", category: "Peeling", url: "https://www.galenic.com/pt/purete-sublime", image: "purete-sublime-peeling.png", function: "Cell renewal, radiance, texture improvement.", faceZones: ["forehead", "cheeks", "nose", "chin"], frequency: "Once a week (Wednesday) — after cleansing, on dry skin.", application: "Apply on completely dry skin to the cheeks, forehead, nose and chin. Massage with gentle circular motions until the enzyme granules dissolve. Wait 5 to 10 minutes and remove with lukewarm water. AVOID: eye contour (minimum 1 cm margin), lip area and nostrils, and any open active pimple. Cien Q10 can be applied normally on peeling night — the periorbital area doesn't conflict.", applicationTime: "wait 5–10min", tips: "Always follow with Cicaplast B5 Spray and then Hydrabio. SPF50 must be reinforced the next day.", avoids: "Do not combine with Effaclar Sérum or Effaclar Lotion in the same routine. Do not use on irritated skin.", priority: "muito_util" },
   { id: 2, name: "Liftactiv *B3 Serum*", brand: "Vichy", category: "Serum", url: "https://www.vichy.pt/liftactiv/liftactiv-b3-serum/VP004500.aspx", image: "liftactiv-b3-serum.png", function: "Tone evening, sun spots, photoaging.", faceZones: ["forehead", "cheeks", "nose", "chin", "neck"], frequency: "Morning — 2nd step after cleansing. Can also be used on recovery night (Thursday) or on nights with Collagen Specialist / Blooming Skin, where there are no exfoliating actives competing.", application: "Apply to the entire face and neck. Wait 1 minute before the next step. Avoid the eye area. Not recommended on nights with Effaclar Sérum, Effaclar Lotion or Galénic Peeling — the buildup of actives on those nights adds no benefit and may cause sensitivity.", applicationTime: "wait 1min", tips: "Niacinamide (B3) has no incompatibilities with collagens or peptides — it fits well on recovery nights. Visible results after 4 weeks of consistent use.", avoids: "Do not use in the same routine as Galénic Peeling or Effaclar Lotion.", priority: "essencial" },
   { id: 3, name: "Effaclar *Sérum* Ultra Concentré", brand: "La Roche-Posay", category: "Serum", url: "https://www.laroche-posay.pt/produto/effaclar-serum-ultra-concentre", image: "effaclar-serum-ultra-concentre.png", function: "Blackheads, uneven texture, acne, enlarged pores.", faceZones: ["forehead", "nose", "chin", "cheeks"], frequency: "4 to 5 nights a week — 2nd step after cleansing.", application: "Apply to the entire T-zone and cheeks. Avoid the periorbital area (eye contour). Wait 2 to 3 minutes before the moisturizer.", applicationTime: "wait 2–3min", tips: "Contains LHA and salicylate. May cause slight initial dryness — reduce frequency if needed.", avoids: "Do not use on the same night as Galénic Peeling or Effaclar Lotion. Avoid the eye contour.", priority: "essencial" },
   { id: 9, name: "Effaclar *A.I.*", brand: "La Roche-Posay", category: "Repair", url: "https://www.laroche-posay.pt/produto/effaclar-ai", image: "effaclar-ai.png", function: "Localized treatment of active pimples.", faceZones: ["spot"], frequency: "When needed — apply directly on the pimple.", application: "Apply ONLY on the active lesion with the product's applicator tip. Thin layer. Wait 1 to 2 minutes. Do not apply on healthy skin around the pimple.", applicationTime: "wait 1–2min", tips: "Most effective when applied early at the first sign of a pimple. Can be used under makeup.", avoids: "No relevant incompatibilities.", priority: "muito_util" },
+  { id: 19, name: "*Pimple* Patch", brand: "Garnier", category: "Repair", url: "https://www.garnier.pt/pure-active", image: "pimple-patch.png", function: "Covers and protects the active pimple, absorbs fluid, speeds healing — and shields it from actives.", faceZones: ["spot"], frequency: "When there's an active pimple — applied mid-routine, on clean dry skin, before serums and acids.", application: "After cleansing, dry the area well and stick the patch directly on the pimple. Apply the rest of the routine normally around and even over it — the patch seals the lesion, so acids and actives that would otherwise be inappropriate on an open pimple can be used. Leave on 6 to 8 hours or overnight.", applicationTime: "on dry skin", tips: "Because the patch isolates the lesion, you don't need to skip or dodge actives on patch nights — apply them right up to the edge. Don't combine with Effaclar A.I. under the patch.", avoids: "Do not apply on wet skin or over creams — it won't stick. Do not use together with Effaclar A.I. on the same spot.", priority: "muito_util" },
   { id: 8, name: "*Cicaplast* B5 Spray", brand: "La Roche-Posay", category: "Repair", url: "https://www.laroche-posay.pt/produto/cicaplast-b5-spray", image: "cicaplast-b5-spray.png", function: "Skin barrier repair, irritation reduction, post-peeling support.", faceZones: ["forehead", "cheeks", "nose", "chin", "neck"], frequency: "As needed — especially after peelings and before makeup.", application: "Spray from 20 cm away from the face. Let dry for 30 to 60 seconds. Do not rub.", applicationTime: "let dry 30–60s", tips: "Essential after peeling night. Can be used as a soothing primer before makeup.", avoids: "No known incompatibilities.", priority: "muito_util" },
   { id: 6, name: "*Q10* Eye Cream", brand: "Cien", category: "Anti-Aging", url: "https://www.lidl.pt/cien", image: "q10-eye-cream.png", function: "Hydration of the periorbital area, prevention of fine lines.", faceZones: ["eyes"], frequency: "Morning and night — after facial serums. Can be included in ANY night routine (treatment, peeling, recovery, blackheads) because it's applied to an area no other product covers.", application: "Apply ONLY on the orbital bone: brow arch and the cheekbone below the eye. Never on the mobile eyelid. Small amount — the size of a grain of rice per eye. Wait 30 seconds. There's no conflict with Galénic Peeling or Effaclar Sérum because those areas are always avoided with those products.", applicationTime: "wait 30s", tips: "Apply with a gentle tapping motion of the little finger to avoid pulling the delicate skin. Being an isolated area, it doesn't interfere with any active in the routine.", avoids: "Do not use in the same routine as Effaclar Sérum, Effaclar Lotion or Galénic Peeling in that area.", priority: "complementar" },
   { id: 10, name: "*Liftactiv* Collagen Specialist", brand: "Vichy", category: "Anti-Aging", url: "https://www.vichy.pt/liftactiv/liftactiv-collagen-specialist", image: "liftactiv-collagen-specialist.png", function: "Firmness, elasticity, aging prevention.", faceZones: ["forehead", "cheeks", "chin", "neck"], frequency: "Recovery nights (Thursday) — after cleansing and Cien Q10.", application: "Apply to the entire face and neck with upward motions. Wait 1 minute before the moisturizer if needed.", applicationTime: "wait 1min", tips: "Alternative to Blooming Skin Re-Lift. Use on nights without acids for maximum recovery.", avoids: "Avoid in the same routine as Effaclar Sérum or Galénic Peeling.", priority: "complementar" },
   { id: 11, name: "*Re-Lift* with Collagen", brand: "Blooming Skin", category: "Anti-Aging", url: "https://www.bloomingskin.pt", image: "re-lift-collagen.png", function: "Intense nourishment, firmness, collagen.", faceZones: ["forehead", "cheeks", "chin", "neck"], frequency: "Recovery nights — alternative to Liftactiv Collagen Specialist.", application: "Apply to the entire face and neck with upward, circular motions. Wait 1 minute.", applicationTime: "wait 1min", tips: "Good option when skin needs extra nourishment. Rotate with Liftactiv Collagen Specialist.", avoids: "Avoid in the same routine as Effaclar Sérum or Galénic Peeling.", priority: "complementar" },
   { id: 7, name: "*Hydrabio* Gel-Crème", brand: "Bioderma", category: "Moisturizer", url: "https://www.bioderma.pt/os-nossos-produtos/hydrabio/hydrabio-gel-creme", image: "hydrabio-gel-creme.png", function: "Light hydration, comfort without oiliness.", faceZones: ["forehead", "cheeks", "nose", "chin", "neck"], frequency: "Morning and night — second-to-last step (before SPF50 in the morning).", application: "Apply a thin layer to the entire face and neck. Can be applied over the eyes (contour). Wait 1 to 2 minutes before the next step.", applicationTime: "wait 1–2min", tips: "Gel-cream texture ideal for normal to combination skin. Doesn't overload the skin.", avoids: "No known incompatibilities.", priority: "essencial" },
   { id: 14, name: "*Vinergetic* C+ Moisturizer", brand: "Caudalie", category: "Moisturizer", url: "https://www.caudalie.com/pt/rosto/hidratantes/vinergetic-c-hidratante-energizante-3-em-1.html", image: "vinergetic-c-moisturizer.png", function: "Hydration, vitamin C (radiance and spots), hyaluronic acid, antioxidant. Replaces Hydrabio in routines without exfoliating acids.", faceZones: ["forehead", "cheeks", "nose", "chin", "neck"], frequency: "Morning (replaces Hydrabio) · Recovery night (replaces Hydrabio) · Blackheads night if skin is not sensitized.", application: "Apply to the entire face and neck after serums. Wait 1 to 2 minutes before SPF50 in the morning. Do not use on irritated skin or after peeling — keep Hydrabio on those nights.", applicationTime: "wait 1–2min", tips: "Vitamin C in the morning under SPF50 is one of the most effective combinations for spots and photoaging. Do not use on peeling night or on treatment night with Effaclar Sérum — combining with acids may irritate.", avoids: "Do not use on peeling night (Galénic). Not recommended on treatment night with Effaclar Sérum on sensitive skin. Do not use on irritated skin — replace with Hydrabio.", priority: "muito_util" },
+  { id: 17, name: "*Vino-source* Moisturizing Sorbet", brand: "Caudalie", category: "Moisturizer", url: "https://www.caudalie.com/pt/vinosource-hydra", image: "caudalie-vinosource.png", function: "Soothing, thirst-quenching hydration for sensitive or dehydrated skin. No actives — safe on any night.", faceZones: ["forehead", "cheeks", "nose", "chin", "neck"], frequency: "Alternative moisturizer — best on peeling, irritated-skin or acid nights when the skin needs calm.", application: "Apply a thin layer to the entire face and neck. Wait 1 to 2 minutes before the next step.", applicationTime: "wait 1–2min", tips: "Fresh sorbet texture, very gentle. Good travel alternative to Hydrabio — the two are interchangeable.", avoids: "No known incompatibilities.", priority: "complementar" },
+  { id: 18, name: "*Vino-pure* Mattifying Fluid", brand: "Caudalie", category: "Moisturizer", url: "https://www.caudalie.com/pt/vinopure", image: "caudalie-vinopure.png", function: "Light hydration with matte finish — salicylic acid and niacinamide for oily, acne-prone skin.", faceZones: ["forehead", "cheeks", "nose", "chin"], frequency: "Alternative moisturizer for oily days, blackheads night or under makeup. Not on acid-heavy or irritated nights.", application: "Apply a thin layer to the entire face, focusing on the T-zone. Wait 1 to 2 minutes. Avoid the eye contour.", applicationTime: "wait 1–2min", tips: "Contains salicylic acid — don't stack it on nights with Effaclar Sérum, Effaclar Lotion or Galénic Peeling.", avoids: "Do not use on peeling night, on irritated skin, or on the same night as Effaclar Sérum / Effaclar Lotion.", priority: "complementar" },
   { id: 12, name: "Normaderm Mattifying *Mist*", brand: "Vichy", category: "Mattifying Mist", url: "https://www.vichy.pt/normaderm", image: "normaderm-mattifying-mist.png", function: "Oil control, matte finish.", faceZones: ["nose", "chin", "forehead"], frequency: "Before makeup or as needed throughout the day.", application: "Apply exclusively to the T-zone (forehead, nose, chin) and chin. Avoid cheeks if sensitized. Spray and wait 30 seconds.", applicationTime: "wait 30s", tips: "Do not apply on dry or irritated cheeks. Ideal as a setting step before foundation.", avoids: "Irritated skin or sensitized cheeks.", priority: "complementar" },
   { id: 13, name: "Lotion AM *SPF50*", brand: "CeraVe", category: "Moisturizer", url: "https://www.cerave.pt/a-nossa-gama/protecao-solar/cerave-facial-moisturising-lotion-spf50", image: "lotion-am-spf50.png", function: "UV protection, prevention of spots and photoaging.", faceZones: ["forehead", "cheeks", "nose", "chin", "neck"], frequency: "Every morning — last step of the routine.", application: "Apply generously to the entire face, neck and ears. Wait 2 to 5 minutes before makeup. Reapply every 2h during sun exposure.", applicationTime: "wait 2–5min", tips: "The most important product in the entire routine for spots and aging prevention. Don't skimp on quantity.", avoids: "Do not apply before serums or moisturizers — it's always the last step of the morning.", priority: "essencial" },
 ].sort((a, b) => {
@@ -61,6 +65,41 @@ function getProductColor(product: { id: number }) {
   if (product.id === 10) return "var(--shadow-grey)";
   const index = products.findIndex(p => p.id === product.id);
   return cardColors[index % cardColors.length];
+}
+
+/**
+ * Per-render cell colors: each cell prefers its product's base color but is
+ * bumped along the palette when the left/top neighbor already uses it, so no
+ * two adjacent cells share a color. The image cell is exempt (the photo
+ * covers its background) and keeps the hovered product's color.
+ */
+function computeCellColors(
+  occupancy: (number | null)[],
+  cols: number,
+  imageCellIndex: number | null,
+  imageProductId: number | null,
+): string[] {
+  const baseColor = (pid: number | null, i: number) => {
+    if (pid !== null) return getProductColor({ id: pid });
+    return cardColors[i % cardColors.length];
+  };
+
+  const out = new Array<string>(occupancy.length);
+  for (let i = 0; i < occupancy.length; i++) {
+    if (i === imageCellIndex && imageProductId !== null) {
+      out[i] = baseColor(imageProductId, i);
+      continue;
+    }
+    const neighbors: string[] = [];
+    const left = i % cols !== 0 ? i - 1 : -1;
+    const top = i - cols;
+    if (left >= 0 && left !== imageCellIndex) neighbors.push(out[left]);
+    if (top >= 0 && top !== imageCellIndex) neighbors.push(out[top]);
+
+    const preferred = baseColor(occupancy[i], i);
+    out[i] = [preferred, ...cardColors].find(c => !neighbors.includes(c)) ?? preferred;
+  }
+  return out;
 }
 
 const NO_INCOMPATIBILITIES = ["No known incompatibilities.", "No relevant incompatibilities."];
@@ -124,7 +163,7 @@ const ROUTINES = [
       { num: 2, name: "Liftactiv B3 Serum", productId: 2, note: "wait 1 minute" },
       { num: 3, name: "Cicaplast B5 Spray", productId: 8, note: "optional — sensitive days or after an acid night" },
       { num: 4, name: "Q10", productId: 6, note: "only on the orbital bone" },
-      { num: 5, name: "Vinergetic C+ Moisturizer", productId: 14, note: "vitamin C + SPF50" },
+      { num: 5, name: "Vinergetic C+ Moisturizer", productId: 14, note: "best — vitamin C under SPF50 · alt: Hydrabio, or Vinopure Fluid on oily days" },
       { num: 6, name: "Lotion AM SPF50", productId: 13, note: "generously, wait 5 min" },
     ],
     timeOfDay: "manha",
@@ -134,11 +173,12 @@ const ROUTINES = [
     color: "var(--treatment)",
     textColor: "var(--white)",
     steps: [
-      { num: 1, name: "Blooming Cleansing for Sensitive Skin", productId: 15, note: "double cleanse if wearing makeup" },
-      { num: 2, name: "Effaclar Sérum Ultra Concentré", productId: 3, note: "forehead, nose, chin, cheeks" },
-      { num: 3, name: "Q10", productId: 6, note: "only on the orbital bone" },
-      { num: 4, name: "Hydrabio Gel-Crème", productId: 7, note: "entire face and neck" },
-      { num: 5, name: "Effaclar A.I.", productId: 9, note: "optional — only on active pimples" },
+      { num: 1, name: "Pure Active Charcoal Cleanser", productId: 16, note: "or Blooming cleanser · double cleanse if wearing makeup" },
+      { num: 2, name: "Pimple Patch", productId: 19, note: "optional — on dry skin over active pimples; the serum can then be applied normally around it" },
+      { num: 3, name: "Effaclar Sérum Ultra Concentré", productId: 3, note: "forehead, nose, chin, cheeks" },
+      { num: 4, name: "Q10", productId: 6, note: "only on the orbital bone" },
+      { num: 5, name: "Hydrabio Gel-Crème", productId: 7, note: "best after acids · alt: Vinosource Sorbet — never Vinopure or Vinergetic tonight" },
+      { num: 6, name: "Effaclar A.I.", productId: 9, note: "optional — only on unpatched pimples" },
     ],
     note: "lean routine — Effaclar Sérum is already very active. Don't add extra serums.",
     timeOfDay: "noite",
@@ -152,7 +192,7 @@ const ROUTINES = [
       { num: 2, name: "Liftactiv B3 Serum", productId: 2, note: "optional" },
       { num: 3, name: "Q10", productId: 6, note: "only on the orbital bone" },
       { num: 4, name: "Liftactiv Collagen Specialist", productId: 10, note: "or Blooming Skin Re-Lift" },
-      { num: 5, name: "Vinergetic C+ Moisturizer", productId: 14, note: "no competing acids" },
+      { num: 5, name: "Vinergetic C+ Moisturizer", productId: 14, note: "best — no competing acids · alt: Hydrabio or Vinosource Sorbet" },
     ],
     timeOfDay: "noite",
   },
@@ -162,11 +202,12 @@ const ROUTINES = [
     textColor: "var(--white)",
     steps: [
       { num: 1, name: "Blooming Cleansing for Sensitive Skin", productId: 15, note: "" },
-      { num: 2, name: "Pureté Sublime Peeling", productId: 5, note: "avoid 1 cm around the eyes, lips and nostrils" },
-      { num: 3, name: "Q10", productId: 6, note: "can apply — no conflict" },
-      { num: 4, name: "Cicaplast B5 Spray", productId: 8, note: "soothing post-peeling" },
-      { num: 5, name: "Hydrabio Gel-Crème", productId: 7, note: "keep Hydrabio" },
-      { num: 6, name: "Effaclar A.I.", productId: 9, note: "optional" },
+      { num: 2, name: "Pimple Patch", productId: 19, note: "optional — covering the active pimple lets the peeling go around it instead of skipping the area" },
+      { num: 3, name: "Pureté Sublime Peeling", productId: 5, note: "avoid 1 cm around the eyes, lips and nostrils" },
+      { num: 4, name: "Q10", productId: 6, note: "can apply — no conflict" },
+      { num: 5, name: "Cicaplast B5 Spray", productId: 8, note: "soothing post-peeling" },
+      { num: 6, name: "Hydrabio Gel-Crème", productId: 7, note: "best post-peeling · alt: Vinosource Sorbet only — no Vinergetic or Vinopure" },
+      { num: 7, name: "Effaclar A.I.", productId: 9, note: "optional" },
     ],
     warning: "Avoid: Effaclar Sérum · Effaclar Lotion · Liftactiv B3 Serum",
     timeOfDay: "noite",
@@ -176,13 +217,14 @@ const ROUTINES = [
     color: "var(--blackheads)",
     textColor: "var(--white)",
     steps: [
-      { num: 1, name: "Blooming Cleansing for Sensitive Skin", productId: 15, note: "" },
-      { num: 2, name: "Effaclar Astringent Lotion", productId: 4, note: "nose, chin, cheeks" },
-      { num: 3, name: "Liftactiv B3 Serum", productId: 2, note: "optional" },
-      { num: 4, name: "Q10", productId: 6, note: "no conflict" },
-      { num: 5, name: "Cicaplast B5 Spray", productId: 8, note: "optional" },
-      { num: 6, name: "Vinergetic C+ Moisturizer", productId: 14, note: "if skin is not sensitized" },
-      { num: 7, name: "Effaclar A.I.", productId: 9, note: "optional" },
+      { num: 1, name: "Pure Active Charcoal Cleanser", productId: 16, note: "or Blooming cleanser" },
+      { num: 2, name: "Pimple Patch", productId: 19, note: "optional — seal active pimples so the lotion can be applied normally around them" },
+      { num: 3, name: "Effaclar Astringent Lotion", productId: 4, note: "nose, chin, cheeks" },
+      { num: 4, name: "Liftactiv B3 Serum", productId: 2, note: "optional" },
+      { num: 5, name: "Q10", productId: 6, note: "no conflict" },
+      { num: 6, name: "Cicaplast B5 Spray", productId: 8, note: "optional" },
+      { num: 7, name: "Vinergetic C+ Moisturizer", productId: 14, note: "best if skin is not sensitized · alt: Hydrabio or Vinosource — skip Vinopure (acid stacking)" },
+      { num: 8, name: "Effaclar A.I.", productId: 9, note: "optional" },
     ],
     warning: "Avoid: Effaclar Sérum · Pureté Sublime Peeling",
     timeOfDay: "noite",
@@ -192,7 +234,7 @@ const ROUTINES = [
     color: "var(--blackheads)",
     textColor: "var(--white)",
     steps: [
-      { num: 1, name: "Hydrabio Gel-Crème", productId: 7, note: "" },
+      { num: 1, name: "Hydrabio Gel-Crème", productId: 7, note: "best base · alt: Vinopure Fluid for a matte finish on oily days" },
       { num: 2, name: "Cicaplast B5 Spray", productId: 8, note: "" },
       { num: 3, name: "Q10", productId: 6, note: "only on the orbital bone" },
       { num: 4, name: "Normaderm Mattifying Mist", productId: 12, note: "t-zone only" },
@@ -210,7 +252,7 @@ const ROUTINES = [
       { num: 1, name: "Blooming Cleansing for Sensitive Skin", productId: 15, note: "" },
       { num: 2, name: "Q10", productId: 6, note: "orbital bone only" },
       { num: 3, name: "Cicaplast B5 Spray", productId: 8, note: "optional" },
-      { num: 4, name: "Hydrabio Gel-Crème", productId: 7, note: "" },
+      { num: 4, name: "Hydrabio Gel-Crème", productId: 7, note: "best · alt: Vinosource Sorbet — no Vinergetic or Vinopure on irritated skin" },
       { num: 5, name: "Lotion AM SPF50", productId: 13, note: "required" },
     ],
     warning: "Suspend all actives: Effaclar Sérum · Effaclar Lotion · Peeling · B3 · Vinergetic C+",
@@ -224,7 +266,7 @@ const ROUTINES = [
       { num: 1, name: "Blooming Cleansing for Sensitive Skin", productId: 15, note: "" },
       { num: 2, name: "Q10", productId: 6, note: "orbital bone only" },
       { num: 3, name: "Cicaplast B5 Spray", productId: 8, note: "barrier repair" },
-      { num: 4, name: "Hydrabio Gel-Crème", productId: 7, note: "" },
+      { num: 4, name: "Hydrabio Gel-Crème", productId: 7, note: "best · alt: Vinosource Sorbet — no Vinergetic or Vinopure on irritated skin" },
     ],
     warning: "Suspend all actives: Effaclar Sérum · Effaclar Lotion · Peeling · B3 · Vinergetic C+",
     timeOfDay: "noite",
@@ -235,7 +277,7 @@ const ROUTINES = [
     textColor: "var(--white)",
     steps: [
       { num: 1, name: "Blooming Cleansing for Sensitive Skin", productId: 15, note: "" },
-      { num: 2, name: "Hydrabio Gel-Crème", productId: 7, note: "use Hydrabio, not Vinergetic" },
+      { num: 2, name: "Hydrabio Gel-Crème", productId: 7, note: "best · alt: Vinosource Sorbet — not Vinergetic or Vinopure" },
       { num: 3, name: "Cicaplast B5 Spray", productId: 8, note: "optional" },
       { num: 4, name: "Lotion AM SPF50", productId: 13, note: "required" },
     ],
@@ -248,11 +290,12 @@ const ROUTINES = [
     textColor: "var(--white)",
     steps: [
       { num: 1, name: "Blooming Cleansing for Sensitive Skin", productId: 15, note: "" },
-      { num: 2, name: "Effaclar Sérum Ultra Concentré", productId: 3, note: "" },
-      { num: 3, name: "Q10", productId: 6, note: "orbital bone only" },
-      { num: 4, name: "Cicaplast B5 Spray", productId: 8, note: "optional" },
-      { num: 5, name: "Effaclar A.I.", productId: 9, note: "on each active lesion" },
-      { num: 6, name: "Hydrabio Gel-Crème", productId: 7, note: "use Hydrabio, not Vinergetic" },
+      { num: 2, name: "Pimple Patch", productId: 19, note: "on the worst lesions — the serum can then cover the rest of the zone normally" },
+      { num: 3, name: "Effaclar Sérum Ultra Concentré", productId: 3, note: "" },
+      { num: 4, name: "Q10", productId: 6, note: "orbital bone only" },
+      { num: 5, name: "Cicaplast B5 Spray", productId: 8, note: "optional" },
+      { num: 6, name: "Effaclar A.I.", productId: 9, note: "only on unpatched lesions" },
+      { num: 7, name: "Hydrabio Gel-Crème", productId: 7, note: "best · alt: Vinosource Sorbet — not Vinergetic or Vinopure" },
     ],
     warning: "Suspend: Effaclar Lotion · Peeling · Vinergetic C+",
     timeOfDay: "noite",
@@ -262,9 +305,9 @@ const ROUTINES = [
 const OBJECTIVES = [
   { obj: "Sun Spots", priority: "Very High", products: ["CeraVe Lotion AM SPF50", "Vichy Liftactiv B3 Serum"], color: "var(--accent)" },
   { obj: "Post-Acne Marks", priority: "Very High", products: ["CeraVe Lotion AM SPF50", "Vichy Liftactiv B3 Serum", "La Roche-Posay Effaclar Sérum Ultra Concentré"], color: "var(--acne)" },
-  { obj: "Blackheads", priority: "Very High", products: ["La Roche-Posay Effaclar Sérum Ultra Concentré", "La Roche-Posay Effaclar Astringent Lotion"], color: "var(--blackheads)" },
+  { obj: "Blackheads", priority: "Very High", products: ["La Roche-Posay Effaclar Sérum Ultra Concentré", "La Roche-Posay Effaclar Astringent Lotion", "Garnier Pure Active Charcoal Cleanser"], color: "var(--blackheads)" },
   { obj: "Dilated Pores", priority: "High", products: ["La Roche-Posay Effaclar Sérum Ultra Concentré", "La Roche-Posay Effaclar Astringent Lotion", "Galénic Pureté Sublime Peeling"], color: "var(--blackheads)" },
-  { obj: "Occasional Acne", priority: "High", products: ["La Roche-Posay Effaclar Sérum Ultra Concentré", "La Roche-Posay Effaclar A.I."], color: "var(--acne)" },
+  { obj: "Occasional Acne", priority: "High", products: ["La Roche-Posay Effaclar Sérum Ultra Concentré", "La Roche-Posay Effaclar A.I.", "Pimple Patch"], color: "var(--acne)" },
   { obj: "Irritated Skin", priority: "Very High", products: ["La Roche-Posay Cicaplast B5 Spray", "Bioderma Hydrabio Gel-Crème"], color: "var(--irritated)" },
   { obj: "Anti-Aging", priority: "Medium", products: ["Vichy Liftactiv Collagen Specialist", "Blooming Skin Re-Lift with Collagen"], color: "var(--pre-makeup)" },
   { obj: "Eye Contour", priority: "Low", products: ["Cien Q10 Eye Cream"], color: "var(--peeling-lavender)" },
@@ -306,6 +349,7 @@ function Badge({ label, color, bg }: { label: string; color: string; bg: string 
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<null | typeof products[0]>(null);
+  const [hoveredStep, setHoveredStep] = useState<{ routineIdx: number; productId: number } | null>(null);
   const [activeTab, setActiveTab] = useState("noite");
   const [activeRoutine, setActiveRoutine] = useState<string | null>(null);
   const [filterCategory, setFilterCategory] = useState("todos");
@@ -614,7 +658,14 @@ export default function App() {
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
             >
-              {gridState.occupancy.map((productId, i) => {
+              {(() => {
+                const cellColors = computeCellColors(
+                  gridState.occupancy,
+                  Math.max(1, gridState.cols),
+                  gridState.imageCellIndex,
+                  gridState.imageProductId,
+                );
+                return gridState.occupancy.map((productId, i) => {
                   const isVacancy = productId === null;
                   const isImageCell = i === gridState.imageCellIndex;
                   const imageProduct =
@@ -630,7 +681,7 @@ export default function App() {
                         key={`cell-${i}`}
                         style={{
                           aspectRatio: "1",
-                          background: "var(--bg-primary)",
+                          background: cellColors[i],
                           pointerEvents: "none",
                         }}
                       />
@@ -648,7 +699,7 @@ export default function App() {
                           aspectRatio: "1",
                           position: "relative",
                           zIndex: isHovered ? 2 : 1,
-                          background: getProductColor(imageProduct),
+                          background: cellColors[i],
                         }}
                       >
                         <img
@@ -669,7 +720,7 @@ export default function App() {
 
                   if (!product) return null;
 
-                  const color = getProductColor(product);
+                  const color = cellColors[i];
 
                   return (
                     <article
@@ -680,34 +731,43 @@ export default function App() {
                         overflow: "hidden",
                         cursor: "pointer",
                         aspectRatio: "1",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        justifyContent: "center",
                         position: "relative",
                         zIndex: isHovered ? 2 : 1,
                       }}
                     >
-                      <h3
+                      {/* Absolute layer so long names can never stretch the square cell */}
+                      <div
                         style={{
-                          fontFamily: FONT_DISPLAY,
-                          fontWeight: "normal",
-                          fontSize: "clamp(1.6rem, 6vw, 2.8rem)",
-                          color: "var(--white)",
-                          lineHeight: 0.94,
-                          letterSpacing: "-0.01em",
-                          textTransform: "lowercase",
-                          textAlign: "left",
-                          hyphens: "auto",
-                          overflowWrap: "break-word",
-                          padding: "0 1rem",
-                          position: "relative",
-                          zIndex: 1,
-                          margin: 0,
+                          position: "absolute",
+                          inset: 0,
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          justifyContent: "center",
+                          overflow: "hidden",
                         }}
                       >
-                        {renderEmphasizedName(product.name)}
-                      </h3>
+                        <h3
+                          style={{
+                            fontFamily: FONT_DISPLAY,
+                            fontWeight: "normal",
+                            fontSize: "clamp(1.6rem, 6vw, 2.8rem)",
+                            color: "var(--white)",
+                            lineHeight: 0.94,
+                            letterSpacing: "-0.01em",
+                            textTransform: "lowercase",
+                            textAlign: "left",
+                            hyphens: "auto",
+                            overflowWrap: "break-word",
+                            padding: "0 1rem",
+                            position: "relative",
+                            zIndex: 1,
+                            margin: 0,
+                          }}
+                        >
+                          {renderEmphasizedName(product.name)}
+                        </h3>
+                      </div>
                       <span
                         style={{
                           position: "absolute",
@@ -729,7 +789,8 @@ export default function App() {
                       </span>
                     </article>
                   );
-              })}
+                });
+              })()}
             </div>
             </div>
           </section>
@@ -752,7 +813,27 @@ export default function App() {
                     justifyContent: "center",
                   }}
                 >
-                  <div style={{ maxWidth: 960, margin: "0 auto", width: "100%", padding: "2rem 1.5rem" }}>
+                  <div style={{ maxWidth: 960, margin: "0 auto", width: "100%", padding: "2rem 1.5rem", position: "relative" }}>
+                  {hoveredStep?.routineIdx === idx && (() => {
+                    const hoverProduct = productById.get(hoveredStep.productId);
+                    if (!hoverProduct) return null;
+                    return (
+                      <img
+                        src={import.meta.env.BASE_URL + "products/cropped/" + hoverProduct.image}
+                        alt={hoverProduct.name}
+                        style={{
+                          position: "absolute",
+                          right: "1.5rem",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          maxHeight: "min(45vh, 340px)",
+                          maxWidth: "min(28vw, 260px)",
+                          objectFit: "contain",
+                          pointerEvents: "none",
+                        }}
+                      />
+                    );
+                  })()}
                   <h3
                     style={{
                       fontFamily: FONT_DISPLAY,
@@ -795,6 +876,8 @@ export default function App() {
                                   {found ? (
                                     <span
                                       onClick={() => setSelectedProduct(found)}
+                                      onMouseEnter={() => setHoveredStep({ routineIdx: idx, productId: found.id })}
+                                      onMouseLeave={() => setHoveredStep(null)}
                                       className="product-link"
                                       style={{ color: routine.textColor, cursor: "pointer" }}
                                     >
