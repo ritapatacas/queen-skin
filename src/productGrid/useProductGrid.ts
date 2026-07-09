@@ -127,7 +127,7 @@ export function useProductGrid(
           e.pageY >= r.top &&
           e.pageY <= r.bottom,
       );
-      if (idx === -1) {
+      if (idx === -1 || idx >= state.occupancy.length) {
         setHoveredIndex(null);
         return;
       }

@@ -16,8 +16,15 @@ export { onHover } from "./transition";
 import type { GridState } from "./types";
 
 export function initialState(productIds: number[], cols: number): GridState {
+  // Pad with vacancies so the last row is always complete: at least one
+  // vacancy, at most `cols` (products + 1..cols empty cells).
+  const safeCols = Math.max(1, cols);
+  const cellCount = Math.ceil((productIds.length + 1) / safeCols) * safeCols;
   return {
-    occupancy: [...productIds, null],
+    occupancy: [
+      ...productIds,
+      ...Array<null>(cellCount - productIds.length).fill(null),
+    ],
     imageCellIndex: null,
     imageProductId: null,
     cols,
@@ -30,8 +37,9 @@ export function countNulls(occupancy: (number | null)[]): number {
 }
 
 export function assertInvariants(state: GridState, productIds: number[]): void {
-  if (countNulls(state.occupancy) !== 1) {
-    throw new Error(`Expected exactly one null, got ${countNulls(state.occupancy)}`);
+  const expectedNulls = state.occupancy.length - productIds.length;
+  if (expectedNulls < 1 || countNulls(state.occupancy) !== expectedNulls) {
+    throw new Error(`Expected ${expectedNulls} nulls, got ${countNulls(state.occupancy)}`);
   }
   const expected = new Set(productIds);
   const present = state.occupancy.filter((v): v is number => v !== null);

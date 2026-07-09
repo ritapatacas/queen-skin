@@ -1,4 +1,4 @@
-import { buildPath, buildAdjacentPath } from "./path";
+import { buildPath, buildAdjacentPathToNearest } from "./path";
 import { vacancyIndex } from "./geometry";
 
 export function propagateVacancy(
@@ -25,7 +25,7 @@ export function propagateVacancy(
 export function buildTextShiftChain(
   hoverIndex: number,
   destIndex: number,
-  nullIdx: number,
+  nulls: ReadonlySet<number>,
   cols: number,
   cellCount: number,
 ): number[] {
@@ -33,28 +33,31 @@ export function buildTextShiftChain(
   if (hoverIndex !== destIndex) chain.push(destIndex);
 
   let current = chain[chain.length - 1];
-  while (current !== nullIdx) {
+  while (!nulls.has(current)) {
     const below = current + cols;
-    if (below < cellCount) {
-      if (below === nullIdx) {
-        chain.push(below);
-        break;
-      }
-      if (!chain.includes(below)) {
-        chain.push(below);
-        current = below;
-        continue;
-      }
+    if (below < cellCount && !chain.includes(below)) {
+      chain.push(below);
+      current = below;
+      continue;
     }
 
-    const path = buildAdjacentPath(current, nullIdx, cols, cellCount);
-    if (path.length === 0) break;
-    for (const step of path) {
-      if (chain[chain.length - 1] === step) continue;
-      chain.push(step);
-      if (step === nullIdx) break;
-    }
+    const path = buildAdjacentPathToNearest(current, nulls, cols, cellCount, new Set(chain));
+    for (const step of path) chain.push(step);
     break;
+  }
+
+  // The bubble-down walk can dead-end away from every vacancy; fall back to
+  // the minimal chain [H, D] plus a direct path to the nearest vacancy.
+  if (!nulls.has(chain[chain.length - 1])) {
+    const base = hoverIndex !== destIndex ? [hoverIndex, destIndex] : [hoverIndex];
+    const path = buildAdjacentPathToNearest(
+      base[base.length - 1],
+      nulls,
+      cols,
+      cellCount,
+      new Set(base),
+    );
+    return path.length > 0 ? [...base, ...path] : base;
   }
 
   return chain;
@@ -84,13 +87,19 @@ export function relocateTextOnHover(
   if (hoverIndex === destIndex) return occupancy;
   if (occupancy[hoverIndex] === null) return occupancy;
 
-  const nullIdx = vacancyIndex(occupancy);
+  const nulls = new Set(
+    occupancy.flatMap((v, i) => (v === null ? [i] : [])),
+  );
+  if (nulls.size === 0) return occupancy;
+
   const chain = buildTextShiftChain(
     hoverIndex,
     destIndex,
-    nullIdx,
+    nulls,
     cols,
     occupancy.length,
   );
+  // An incomplete chain would overwrite a product and duplicate a vacancy.
+  if (!nulls.has(chain[chain.length - 1])) return occupancy;
   return shiftAlongChain(occupancy, chain);
 }

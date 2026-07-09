@@ -1,5 +1,6 @@
 import type { GridState } from "./types";
-import { imageDestinationIndex } from "./layoutRules";
+import { destinationCandidates } from "./layoutRules";
+import { indexToCoord } from "./geometry";
 import { relocateTextOnHover } from "./propagate";
 
 export function onHover(
@@ -11,11 +12,21 @@ export function onHover(
   if (state.occupancy[hoverIndex] === null) return state;
 
   const H = hoverIndex;
-  const D = imageDestinationIndex(H, state.cols, state.occupancy.length);
+  const candidates = destinationCandidates(
+    indexToCoord(H, state.cols),
+    state.cols,
+    state.occupancy.length,
+  );
 
+  // Try each destination until one yields a valid shift chain (an unchanged
+  // array means no vacancy path avoiding the hover cell exists for that D).
   let occupancy = state.occupancy;
-  if (H !== D) {
-    occupancy = relocateTextOnHover(occupancy, H, D, state.cols);
+  for (const D of candidates) {
+    const next = relocateTextOnHover(state.occupancy, H, D, state.cols);
+    if (next !== state.occupancy) {
+      occupancy = next;
+      break;
+    }
   }
 
   return {

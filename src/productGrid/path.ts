@@ -48,8 +48,20 @@ export function buildAdjacentPath(
   target: number,
   cols: number,
   cellCount: number,
+  blocked: ReadonlySet<number> = new Set(),
 ): number[] {
-  if (start === target) return [];
+  return buildAdjacentPathToNearest(start, new Set([target]), cols, cellCount, blocked);
+}
+
+/** BFS from start to the nearest of `targets`, avoiding `blocked` cells. */
+export function buildAdjacentPathToNearest(
+  start: number,
+  targets: ReadonlySet<number>,
+  cols: number,
+  cellCount: number,
+  blocked: ReadonlySet<number> = new Set(),
+): number[] {
+  if (targets.has(start)) return [];
 
   const visited = new Map<number, number | null>([[start, null]]);
   const queue = [start];
@@ -65,10 +77,12 @@ export function buildAdjacentPath(
     ];
 
     for (const n of neighbors) {
+      if (n.row < 0 || n.col < 0 || n.col >= cols) continue;
       const idx = coordToIndex(n, cols);
       if (idx < 0 || idx >= cellCount || visited.has(idx)) continue;
+      if (blocked.has(idx) && !targets.has(idx)) continue;
       visited.set(idx, cur);
-      if (idx === target) {
+      if (targets.has(idx)) {
         const path: number[] = [];
         let p: number | null = idx;
         while (p !== null && p !== start) {
@@ -81,5 +95,5 @@ export function buildAdjacentPath(
     }
   }
 
-  throw new Error(`Unreachable target ${target} from ${start}`);
+  return [];
 }

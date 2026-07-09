@@ -19,12 +19,16 @@ function hoverAt(state: ReturnType<typeof initialState>, index: number) {
 }
 
 describe("initialState", () => {
-  it("has one null at last cell", () => {
+  it("pads the last row with vacancies (1 to cols empties)", () => {
     const state = initialState(IDS, 3);
-    expect(state.occupancy).toHaveLength(7);
-    expect(state.occupancy[6]).toBeNull();
+    expect(state.occupancy).toHaveLength(9);
+    expect(state.occupancy.slice(6)).toEqual([null, null, null]);
     expect(vacancyIndex(state.occupancy)).toBe(6);
     assertInvariants(state, IDS);
+
+    const exact = initialState([1, 2], 3);
+    expect(exact.occupancy).toHaveLength(3);
+    expect(exact.occupancy[2]).toBeNull();
   });
 });
 
@@ -38,7 +42,7 @@ describe("onHover — image at hover cell, text shifts one cell at a time", () =
     expect(next.occupancy[0]).toBeNull();
     expect(next.occupancy[1]).toBe(1);
     expect(next.occupancy[4]).toBe(2);
-    expect(next.occupancy.filter((v) => v === null).length).toBe(1);
+    expect(next.occupancy.filter((v) => v === null).length).toBe(3);
     assertInvariants(next, IDS);
   });
 
@@ -84,6 +88,27 @@ describe("imageDestination — 3 columns", () => {
       row: 0,
       col: 1,
     });
+  });
+
+  it("clamps to an in-bounds neighbor on an incomplete last row", () => {
+    // 8 cells, 3 cols: last row has indices 6,7 — col 1 → col 2 (index 8) is out of bounds
+    expect(imageDestination({ row: 2, col: 1 }, 3, 8)).toEqual({
+      row: 2,
+      col: 0,
+    });
+    // 7 cells: last row only has index 6 — col 0 → col 1 (index 7) is out of bounds
+    expect(imageDestination({ row: 2, col: 0 }, 3, 7)).toEqual({
+      row: 1,
+      col: 1,
+    });
+  });
+
+  it("hovering the last cell of an incomplete row keeps one vacancy in bounds", () => {
+    const ids = [1, 2, 3, 4, 5, 6, 7];
+    let state = initialState(ids, 3); // 9 cells, vacancies at 7 and 8
+    state = hoverAt(state, 6);
+    expect(state.occupancy).toHaveLength(9);
+    assertInvariants(state, ids);
   });
 });
 
