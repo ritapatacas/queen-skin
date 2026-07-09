@@ -16,9 +16,10 @@ Built with React 19 · TypeScript · Tailwind CSS v4 · Framer Motion · Vite
 ## Development
 
 ```bash
-npm install
-npm run dev
-npm test         # Vitest
-npm run build    # → dist/
-npm run deploy   # build + push to gh-pages
+pnpm install
+pnpm dev
+pnpm test        # Vitest
+pnpm build       # → dist/
+pnpm deploy      # build + push to gh-pages
 ```
+
