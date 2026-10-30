@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { useProductGrid } from "./productGrid/useProductGrid";
 import { RadialMenu, useRadialMenuItems } from "./components/RadialMenu";
+import { SkinChat } from "./chat/SkinChat";
+import { buildSystemPrompt } from "./chat/buildSystemPrompt";
 
 const FONT_DISPLAY = "'Brandon Grotesque Bold', sans-serif";
 const FONT_LIGHT = "'Brandon Grotesque KIDS Light', sans-serif";
@@ -430,6 +432,11 @@ export default function App() {
   }, [selectedProduct]);
 
   const categories = ["todos", ...new Set(products.map(p => p.category))];
+
+  const chatSystemPrompt = useMemo(
+    () => buildSystemPrompt({ products, routines: ROUTINES, weekSchedule, objectives: OBJECTIVES }),
+    [],
+  );
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg-secondary)" }}>
@@ -1320,6 +1327,8 @@ export default function App() {
           </div>
         </div>
       )}
+
+      <SkinChat systemPrompt={chatSystemPrompt} />
     </div>
   );
 }
