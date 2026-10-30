@@ -1152,16 +1152,18 @@ export default function App() {
               top: "1.25rem",
               right: "1.25rem",
               zIndex: 101,
-              width: 40,
-              height: 40,
+              width: 44,
+              height: 44,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               background: OVERLAY_ON_COLOR_STRONG,
               border: "none",
+              borderRadius: "50%",
               color: "var(--white)",
-              fontSize: "1rem",
+              fontSize: "1.1rem",
               cursor: "pointer",
+              touchAction: "manipulation",
             }}
           >
             <i className="fa-solid fa-xmark" />

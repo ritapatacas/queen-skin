@@ -82,12 +82,16 @@ interface MainButtonProps {
   isOpen: boolean;
   isPressed: boolean;
   onPointerDown: (e: React.PointerEvent) => void;
+  onPointerUp: (e: React.PointerEvent) => void;
+  onPointerCancel: (e: React.PointerEvent) => void;
 }
 
-const MainButton: React.FC<MainButtonProps> = ({ isOpen, isPressed, onPointerDown }) => {
+const MainButton: React.FC<MainButtonProps> = ({ isOpen, isPressed, onPointerDown, onPointerUp, onPointerCancel }) => {
   return (
     <motion.button
       onPointerDown={onPointerDown}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerCancel}
       className="radial-menu-button"
       style={{
         position: 'absolute',
@@ -275,6 +279,17 @@ export const RadialMenu: React.FC<RadialMenuProps> = ({
     }, closeDelay);
   }, [items, closeDelay, clearCloseTimeout]);
 
+  // The button holds pointer capture (see handleDown), so if the browser cancels the
+  // gesture instead of delivering pointerup (common on touch when a scroll/swipe
+  // gesture takes over mid-press), this is what fires. Without it, isOpen could get
+  // stuck true and the full-screen tracking overlay below would swallow every tap on
+  // the rest of the page, including unrelated close buttons elsewhere in the app.
+  const handleCancel = useCallback((e: React.PointerEvent) => {
+    try { (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId); } catch {}
+    clearCloseTimeout();
+    setState({ isOpen: false, isPressed: false, activeId: null });
+  }, [clearCloseTimeout]);
+
   const handleActionClick = useCallback((item: RadialMenuItem) => {
     if (!stateRef.current.isOpen) return;
     clearCloseTimeout();
@@ -311,6 +326,8 @@ export const RadialMenu: React.FC<RadialMenuProps> = ({
         isOpen={state.isOpen}
         isPressed={state.isPressed}
         onPointerDown={handleDown}
+        onPointerUp={handleUp}
+        onPointerCancel={handleCancel}
       />
 
       {/* Full-screen overlay for pointer tracking when open */}
